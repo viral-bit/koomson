@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -84,4 +84,82 @@
     <a-entity position="0.09 -0.02 0" rotation="0 0 0">
       <a-torus-knot radius="0.035" radius-tubular="0.005" p="2" q="3" color="#FFD700" shadow="cast: true"></a-torus-knot>
     </a-entity>
-  </a-entity> 
+  </a-entity>  -->
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ff416c, #ff4b2b, #1e90ff, #00c9ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .background-404 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15vw;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+            user-select: none;
+            z-index: 0;
+        }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards, colorChange 5s infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes colorChange {
+            0% { color: white; }
+            50% { color: yellow; }
+            100% { color: cyan; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-404">404</div>
+    <div class="message" id="reminder">Hey, remember to be smart or make the repo private (i.e., vrial-bit)</div>
+
+    <script>
+        // Adding a subtle hover effect
+        document.getElementById("reminder").addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.1)";
+        });
+
+        document.getElementById("reminder").addEventListener("mouseleave", function() {
+            this.style.transform = "scale(1)";
+        });
+    </script>
+</body>
+</html>
